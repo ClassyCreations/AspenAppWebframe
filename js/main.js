@@ -144,7 +144,8 @@ function main(){
         });
         document.getElementById('schedule-body').innerHTML = blocks;
       } else {
-        document.getElementById('schedule-panel').className += " fadeHidden";
+        document.getElementById("schedule-percentBar").className += " noView";
+        document.getElementById('schedule-panel').innerHTML += "No Schedule";
       }
 
       // Once loading is complete, render page

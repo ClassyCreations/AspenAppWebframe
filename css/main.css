@@ -125,3 +125,8 @@ ul {
     height: 40px;
   }
 }
+
+.noView{
+  height: 0;
+  width: 0;
+}
