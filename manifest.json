@@ -1,0 +1,35 @@
+{
+  "short_name": "MHS Schedule",
+  "name": "Aspen Linked MHS Schedule",
+  "icons": [
+    {
+      "src": "img/ios-icon-57x57.png",
+      "type": "image/png",
+      "sizes": "57x57"
+    },
+    {
+      "src": "img/ios-icon-72x72.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "img/ios-icon-114x114.png",
+      "type": "image/png",
+      "sizes": "114x114"
+    },
+    {
+      "src": "img/ios-icon-144x144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#b8101f",
+  "theme_color": "#b8101f",
+  "display": "standalone",
+  "related_applications": [{
+    "platform": "web"
+  }],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
