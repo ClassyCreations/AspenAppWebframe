@@ -14,16 +14,26 @@
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/main.css">
 
-  <link rel="stylesheet" type="text/css" href="./css/addtohomescreen.css">
-  <script src="./js/addtohomescreen.min.js"></script>
-  <script>
-      addToHomescreen();
-  </script>
 
+  <link rel="manifest" href="./manifest.json">
   <link rel="apple-touch-icon" sizes="57x57" href="./img/ios-icon-57x57.png" />
   <link rel="apple-touch-icon" sizes="72x72" href="./img/ios-icon-72x72.png" />
   <link rel="apple-touch-icon" sizes="114x114" href="./img/ios-icon-114x114.png" />
   <link rel="apple-touch-icon" sizes="144x144" href="./img/ios-icon-144x144.png" />
+
+ <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('./sw.js').then(function(registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          // registration failed :(
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  </script>
 
   <script type="text/javascript" src="js/timer.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
