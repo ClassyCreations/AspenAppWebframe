@@ -217,13 +217,7 @@ function main(){
       var blocks = "";
       flex_block = -1;
       num_day = (new Date()).getDay();
-      if(num_day === 2){
-        flex_block = 4;
-        block_percent_map = block_percent_map_tue;
-      }else if(num_day === 4){
-        flex_block = 1;
-        block_percent_map = block_percent_map_thu;
-      }
+      
       blockSchedule.forEach(function(b, index){
         lunch_class = index === 3 ? 'lunchBlock' : '';
         last_class = index === 5 ? 'noBorder' : '';
