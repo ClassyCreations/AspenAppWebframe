@@ -160,7 +160,7 @@ function main(){
   refreshPushNotfificationStatus();
   // Eww JSONP (Thanks, CORS!)
   var lunchtag = document.createElement("script");
-  lunchtag.src = "https://melroseschools.nutrislice.com/menu/api/weeks/school/melrose/menu-type/breakfast/" + today.getFullYear() + "/00/00/?format=json-p&callback=getLunchInfo";
+  lunchtag.src = "https://melroseschools.nutrislice.com/menu/api/weeks/school/melrose/menu-type/breakfast/" + today.getFullYear() + "/00/00/?format=api";
   document.getElementsByTagName('head')[0].appendChild(lunchtag);
 
   // Aspen Stuff
