@@ -53,7 +53,7 @@ function shuffleArray(array) { // https://stackoverflow.com/a/12646864/1709894
   return array;
 }
 
-function getLunchInfo(lunchMenu) { // Bypassing CORS using JSONP
+function getInfo(lunchMenu) { // Bypassing CORS using JSONP
   try {
     document.getElementById('lunch-body').innerHTML = (lunchMenu.days[today.getDay()].menu_items[1].food.name);
   } catch (error){
@@ -160,7 +160,7 @@ function main(){
   refreshPushNotfificationStatus();
   // Eww JSONP (Thanks, CORS!)
   var lunchtag = document.createElement("script");
-  lunchtag.src = "https://melroseschools.nutrislice.com/menu/melrose/breakfast/" + today.getFullYear() + "/00/00/?format=json-p&callback=getLunchInfo";
+  lunchtag.src = "https://melroseschools.nutrislice.com/menu/api/weeks/school/melrose/menu-type/breakfast/" + today.getFullYear() + "/00/00/?format=json-p&callback=getLunchInfo";
   document.getElementsByTagName('head')[0].appendChild(lunchtag);
 
   // Aspen Stuff
