@@ -157,7 +157,6 @@ function main(){
       location.reload()
     }, 300000)
   }
-  refreshPushNotfificationStatus();
   // Eww JSONP (Thanks, CORS!)
   var lunchtag = document.createElement("script");
   lunchtag.src = "https://melroseschools.api.nutrislice.com/menu/api/weeks/school/melrose/menu-type/breakfast/" + today.getFullYear() + "/" + (today.getMonth() + 1) + "/" + today.getDate() + "/?format=json-p&callback=getLunchInfo";
@@ -343,45 +342,4 @@ function main(){
   clock(false);
   //document.getElementById('fetchIssue').setAttribute('style', 'display:inherit;');
   document.getElementById('mHeader').innerHTML = "M";
-}
-
-function tweakNotificationsToggleButton() {
-  var isPushSupported = OneSignal.isPushNotificationsSupported();
-  if (isPushSupported){
-    document.getElementById('notificationsToggleButton').setAttribute('class', '');
-    document.getElementById('notificationsToggleButton').setAttribute('onclick', 'toggleWebNotifications();');
-  }
-
-  if (notifyEnabled) {
-    document.getElementById('notificationsToggleButton').setAttribute('style', 'color:green;')
-  } else {
-    document.getElementById('notificationsToggleButton').setAttribute('style', 'color:#b8101f;');
-  }
-}
-
-function toggleWebNotifications() {
-  try {
-    if (!notifyEnabled) { // If notifications aren't enabled
-      OneSignal.push(["registerForPushNotifications"]);
-    OneSignal.push(["setSubscription", true]);
-      ga('send', 'event', 'WebNotificationPreferenceChange', 'enabled'); // Log in Google Analytics
-    } else {
-      OneSignal.push(["setSubscription", false]); // Unreigister the user
-      ga('send', 'event', 'WebNotificationPreferenceChange', 'disabled');
-    }
-  } finally { // So it still works if GoogleAnalytics isn't found
-  document.getElementById('notificationsToggleButton').setAttribute('style', 'color:gray;');
-  setTimeout(function(){
-    refreshPushNotfificationStatus();
-  }, 2500);
-}
-}
-
-function refreshPushNotfificationStatus() {
-  OneSignal.push(function() {
-    OneSignal.isPushNotificationsEnabled(function(isEnabled) {
-      notifyEnabled = isEnabled;
-      tweakNotificationsToggleButton();
-    });
-  });
 }
