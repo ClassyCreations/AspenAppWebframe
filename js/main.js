@@ -160,7 +160,7 @@ function main(){
   refreshPushNotfificationStatus();
   // Eww JSONP (Thanks, CORS!)
   var lunchtag = document.createElement("script");
-  lunchtag.src = "https://melroseschools.nutrislice.com/menu/api/weeks/school/melrose/menu-type/breakfast/" + today.getFullYear() + "/00/00/?format=json-p&callback=getLunchInfo";
+  lunchtag.src = "https://melroseschools.api.nutrislice.com/menu/api/weeks/school/melrose/menu-type/breakfast/" + today.getFullYear() + "/" + (today.getMonth() + 1) + "/" + today.getDate() + "/?format=json-p&callback=getLunchInfo";
   document.getElementsByTagName('head')[0].appendChild(lunchtag);
 
   // Aspen Stuff
@@ -217,7 +217,7 @@ function main(){
       var blocks = "";
       flex_block = -1;
       num_day = (new Date()).getDay();
-      
+
       blockSchedule.forEach(function(b, index){
         lunch_class = index === 3 ? 'lunchBlock' : '';
         last_class = index === 5 ? 'noBorder' : '';
